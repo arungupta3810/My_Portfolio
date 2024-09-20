@@ -1,0 +1,22 @@
+:root {
+    --dark-theme-black: #111111;
+    --dark-theme-green: #3CCF91;
+    --dark-theme-white: #FFFFFF;
+    --dark-theme-gray: #8F9094;
+
+    --font-size-heading: 84px;
+    --font-size-paragraph: 32px;
+    --font-size-span: 18px;
+}
+
+.dark {
+    background-color: var(--dark-theme-black);
+    color: var(--dark-theme-white);
+}
+
+.App {
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+}
