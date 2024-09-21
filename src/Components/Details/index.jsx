@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.scss'
 import { MailOutlined, LinkedinOutlined, GithubOutlined } from '@ant-design/icons';
+import { themeDecider } from '../CommonHelper';
 
 const Details = () => {
     const contactMedia = [
@@ -25,7 +26,7 @@ const Details = () => {
     ]
     return (
         <div className='details'>
-            <p className='heading dark'>Hey there!, I'm-</p>
+            <p className={`heading ${themeDecider()}`}>Hey there!, I'm-</p>
             <h1>Arun Kumar Gupta.</h1>
             <p>Software Engineer. <span>A self-taught developer with an <br />
                 interest in Computer Science.</span></p>

@@ -1,11 +1,12 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { route } from './routing';
+import { themeDecider } from './Components/CommonHelper';
 
 function App() {
   return (
-    <div className='App dark'>
-      <div className="container dark">
+    <div className={`App ${themeDecider()}`}>
+      <div className={`container ${themeDecider()}`}>
         <BrowserRouter>
           <Routes>
             {route?.map((route) =>
