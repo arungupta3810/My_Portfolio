@@ -40,7 +40,8 @@
         display: flex;
         gap: 1rem;
         margin-top: 2rem;
-
+        a{
+            text-decoration: none;
         .contact-media {
             padding: 3px 10px;
             border-radius: 5px;
@@ -55,5 +56,6 @@
                 }
             }
         }
+    }
     }
 }
