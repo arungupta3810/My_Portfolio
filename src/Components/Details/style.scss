@@ -1,5 +1,5 @@
 .details {
-    padding: 3rem 2rem;
+    padding: 9rem 2rem 3rem 2rem;
 
     .heading {
         font-size: var(--font-size-paragraph);
@@ -8,10 +8,6 @@
         .dark {
             color: var(--dark-theme-green);
         }
-    }
-
-    .dark {
-        color: var(--dark-theme-green);
     }
 
     h1 {
@@ -48,15 +44,15 @@
         .contact-media {
             padding: 3px 10px;
             border-radius: 5px;
+            &.dark{
+                background-color: #141414;
+                }
             span {
                 color: white;
 
                 svg {
                     fill: var(--dark-theme-green);
                 }
-            }
-            &.dark{
-            background-color: #1A202C;
             }
         }
     }

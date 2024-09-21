@@ -35,7 +35,7 @@ const Details = () => {
             <span>⚡Frontend Engineer at <span>Lighthouse Learning Private Limited</span></span>
             <div className='contact-details'>
                 {contactMedia?.map((media) =>
-                    <div className="contact-media">
+                    <div className={`contact-media ${themeDecider()}`}>
                         <span>{media?.icon}{' '}{media?.name}</span>
                     </div>)}
             </div>
