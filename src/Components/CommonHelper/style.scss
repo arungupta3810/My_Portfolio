@@ -1,0 +1,16 @@
+.arrow{
+    span{
+        margin-left: -2.5rem;
+    }
+    .ant-progress-text{
+        display: none;
+        span{
+            svg{
+                display: none;
+            }
+        }
+    }
+    :where(.css-dev-only-do-not-override-14qglws).ant-progress .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path{
+        stroke: var(--dark-theme-green)!important;
+    }
+}
