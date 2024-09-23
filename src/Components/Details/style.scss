@@ -1,45 +1,53 @@
 .details {
-    padding: 9rem 2rem 3rem 2rem;
+    padding: 9rem 0 3rem 0;
+    @media screen and (max-width:767px) {
+        padding: 5rem 0 0 0;
+    }
 
     .heading {
-        font-size: var(--font-size-paragraph);
         margin-bottom: 0;
-
-        .dark {
-            color: var(--dark-theme-green);
-        }
+    }
+    .heading.dark {
+        color: var(--dark-theme-green);
     }
 
     h1 {
         line-height: 1;
         margin: 0 0 1rem 0;
         font-size: var(--font-size-heading);
+        @media screen and (max-width: 767px) {
+            font-size: var(--font-size-heading-mob);
+        }
     }
 
     span {
         line-height: 1.5;
-        font-size: var(--font-size-span);
         color: var(--dark-theme-gray);
-
         span {
             color: var(--dark-theme-green);
         }
     }
 
     p {
-        font-size: var(--font-size-paragraph);
-
         span {
             line-height: 1;
             color: var(--dark-theme-gray);
             font-size: var(--font-size-paragraph);
+            @media screen and (max-width:767px) {
+                font-size: var(--font-size-paragraph-mob);
+            }
         }
     }
 
     .contact-details {
+        @media screen and  (max-width:767px) {
+            gap: 0.75rem;
+        }
         display: flex;
         gap: 1rem;
         margin-top: 2rem;
+        width: 100%;
+        flex-wrap: wrap;
         a{
             text-decoration: none;
         .contact-media {
@@ -50,7 +58,8 @@
                 }
             span {
                 color: white;
-
+                gap: 10px;
+                display: flex;
                 svg {
                     fill: var(--dark-theme-green);
                 }

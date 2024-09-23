@@ -5,6 +5,7 @@ import { themeDecider } from '../CommonHelper';
 import ResumeFile from '../../Assets/Resume/Arun_Kumar_Gupta.pdf'
 
 const Details = () => {
+    
     const contactMedia = [
         {
             id: 1,
@@ -37,6 +38,7 @@ const Details = () => {
             icon: <ProfileOutlined />
         },
     ]
+
     return (
         <div className='details'>
             <p className={`heading ${themeDecider()}`}>Hey there!, I'm-</p>
@@ -48,7 +50,7 @@ const Details = () => {
             <span>⚡Frontend Engineer at <span onClick={()=>window.open("https://www.lighthouse-learning.com/")}>Lighthouse Learning Private Limited</span></span>
             <div className='contact-details'>
                 {contactMedia?.map((media) =>
-                    <a href={media?.url} target='_blank'><div className={`contact-media ${themeDecider()}`}>
+                    <a key={media?.id} href={media?.url} target='_blank'><div className={`contact-media ${themeDecider()}`}>
                         <span>{media?.icon}{' '}{media?.name}</span>
                     </div></a>)}
             </div>

@@ -7,12 +7,12 @@ const Header = () => {
 
     const getNavLink = () => {
         const links = [
-            { name: "Home", path: "/" },
-            { name: "Projects", path: "/projects" },
-            { name: "Blog", path: "/blog" },
+            { id: 1, name: "Home", path: "/" },
+            { id: 2, name: "Projects", path: "/projects" },
+            { id: 3, name: "Blog", path: "/blog" },
         ]
         return links?.map((link)=>
-            <div className="nav-link" onClick={()=>window.location.href=link?.path}>
+            <div key={link?.id} className="nav-link" onClick={()=>window.location.href=link?.path}>
                 {link?.name}
             </div>
         )

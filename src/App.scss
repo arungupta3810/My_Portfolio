@@ -5,8 +5,11 @@
     --dark-theme-gray: #8F9094;
 
     --font-size-heading: 88px;
+    --font-size-heading-mob: 50px;
     --font-size-paragraph: 32px;
+    --font-size-paragraph-mob: 22px;
     --font-size-span: 18px;
+    --font-size-span-mob: 14px;
 }
 
 .dark {
@@ -15,9 +18,29 @@
 }
 
 .App {
-    width: 100%;
-    .container {
-        width: 80%;
-        margin: auto;
+    padding: 0 10rem;
+    @media screen and (max-width:767px) {
+    padding: 0 2rem;
     }
+}
+
+p{
+    font-size: var(--font-size-paragraph);
+    @media screen and (max-width:767px) {
+        font-size: var(--font-size-paragraph-mob);
+    }
+}
+
+span{
+    font-size: var(--font-size-span);
+    @media screen and (max-width:767px) {
+        font-size: var(--font-size-span-mob);
+    }
+}
+
+.ant-row,.ant-col{
+    padding-left: 0!important;
+    padding-right: 0!important;
+    margin-left: 0!important;
+    margin-right: 0!important;
 }
