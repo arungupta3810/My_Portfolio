@@ -3,9 +3,9 @@ import './style.scss'
 import { Progress } from "antd"
 import { useState } from "react"
 
-export const GotoTopArrow = ({scrollPercent}) => {
+export const GotoTopArrow = ({scrollPercent,onClick}) => {
     return(
-        <div className="arrow">
+        <div className="arrow" onClick={onClick}>
             <Progress type="circle" percent={scrollPercent} size={'small'}/>
             <ArrowUpOutlined />
         </div>

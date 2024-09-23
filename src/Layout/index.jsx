@@ -13,9 +13,15 @@ const Layout = () => {
     const documentHeight =
       document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercentage = (scrollTop / documentHeight) * 100;
-    console.log("first", scrollPercentage);
     setScrollPercentage(scrollPercentage);
   });
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <>
@@ -24,9 +30,9 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      <div className="gototop">
-        <GotoTopArrow scrollPercent={scrollPercentage} />
-      </div>
+      {scrollPercentage > 40 && <div className="gototop">
+        <GotoTopArrow scrollPercent={scrollPercentage} onClick={handleClick}/>
+      </div>}
     </>
   );
 };

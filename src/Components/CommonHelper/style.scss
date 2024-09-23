@@ -1,6 +1,12 @@
 .arrow{
     span{
         margin-left: -2.5rem;
+        @media screen and (max-width:767px) {
+            margin-left: -2.8rem;
+            font-size: 30px;
+            position: absolute;
+            top: 25%;
+        }
     }
     .ant-progress-text{
         display: none;
