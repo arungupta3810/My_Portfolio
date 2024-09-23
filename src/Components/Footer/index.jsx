@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>Keep In Touch</p>
+      <span>Feel free to connect with me</span>
       <div className="footer__container">
         <div className="social">
           {contactMedia?.filter(e=>!e?.highlight)?.map((media) => 
