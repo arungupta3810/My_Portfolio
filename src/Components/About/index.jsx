@@ -2,9 +2,12 @@ import React from 'react'
 import './style.scss'
 import MyPic from '../../Assets/Images/pic.jpeg'
 import { Row, Col } from 'antd'
+import { motion, transform } from "framer-motion"
+import {SlideUpWhenVisible} from '../CommonHelper/helperComponents'
 
 const About = () => {
   return (
+    <SlideUpWhenVisible>
     <Row gutter={24} className='about'>
       <Col md={14} xs={24} className="left">
         <p>⚡ About Me</p>
@@ -17,9 +20,20 @@ const About = () => {
         <span>Beyond the code, you'll often find me on the football field, cricket pitch, or at the gym, where I channel my energy and passion into staying active.</span>
       </Col>
       <Col md={10} xs={24} className="right">
-        <img src={MyPic} alt="my picture" />
+        {/* <img src={MyPic} alt="my picture" /> */}
+        <motion.img
+            src={MyPic}
+            alt="My Picture"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 50, duration: 0.8 }}
+            whileHover={{ scale: 1.1}}
+            className="my-picture"
+            />
       </Col>
     </Row>
+    {/* </div> */}
+    </SlideUpWhenVisible>
   )
 }
 

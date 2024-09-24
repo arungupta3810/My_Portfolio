@@ -11,14 +11,14 @@ export const route = [
   },
   {
     id: 2,
-    name: 'Contact',
-    path: '/contact',
-    component: <Contact />
-  },
-  {
-    id: 3,
     name: 'Project',
     path: '/project',
     component: <Project />
+  },
+  {
+    id: 3,
+    name: 'Contact',
+    path: '/contact',
+    component: <Contact />
   },
 ]

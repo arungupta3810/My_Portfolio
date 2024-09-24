@@ -1,9 +1,11 @@
 import React from 'react'
 import './style.scss'
 import { contactMedia, themeDecider } from '../CommonHelper';
+import { SlideUpWhenVisible } from '../CommonHelper/helperComponents';
 
 const Details = () => {
     return (
+        <SlideUpWhenVisible>
         <div className='details'>
             <p className={`heading ${themeDecider()}`}>Hey there!, I'm-</p>
             <h1>Arun Kumar Gupta.</h1>
@@ -16,9 +18,11 @@ const Details = () => {
                 {contactMedia?.map((media) =>
                     <a key={media?.id} href={media?.url} target='_blank'><div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
                         <span>{media?.icon}{' '}{media?.name}</span>
-                    </div></a>)}
+                    </div>
+            </a>)}
             </div>
         </div>
+        </SlideUpWhenVisible>
     )
 }
 

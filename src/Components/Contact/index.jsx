@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { Col, Row, Button, Form, Input, Modal, Result } from "antd";
 import ContactImage from '../../Assets/Images/contact.jpg'
+import { SlideUpWhenVisible } from "../CommonHelper/helperComponents";
 
 const Contact = () => {
   const [form] = Form.useForm();
@@ -43,6 +44,7 @@ const Contact = () => {
   };
 
   return (
+    <SlideUpWhenVisible>
     <div className="contact">
       <p>
         <PhoneOutlined /> Contact
@@ -118,6 +120,10 @@ const Contact = () => {
           </Form>
         </Col>
       </Row>
+      <div className="contact-content">
+      <span>I welcome the opportunity to connect with you! Whether you have a project in mind, are interested in collaboration, or simply want to say hello, feel free to drop me a line.<br/>Open to new job opportunities, I'm eager to hear from you if my skills align with your needs.<br/>Don't hesitate to get in touch.
+      Excited about the prospect of connecting with you!</span>
+      </div>
       {isVisible && (
         <Modal
           visible={isVisible}
@@ -133,6 +139,7 @@ const Contact = () => {
         </Modal>
       )}
     </div>
+    </SlideUpWhenVisible>
   );
 };
 

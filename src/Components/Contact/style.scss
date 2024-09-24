@@ -76,6 +76,14 @@
         }
     }
 
+    .contact-content{
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 0.25px solid var(--dark-theme-gray);
+        border-radius: 10px;
+        line-height: 1.4;
+    }
+
     .modal {
         position: absolute;
         top: 50%;
