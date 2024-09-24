@@ -24,6 +24,7 @@
         line-height: 1.5;
         color: var(--dark-theme-gray);
         span {
+            cursor: pointer;
             color: var(--dark-theme-green);
         }
     }
@@ -69,5 +70,17 @@
             border: 0.25px solid var(--dark-theme-green);
         }
     }
+    .resume-block{
+        padding-top: 0.5rem;
+        text-align: center;
+        width: 50%;
+        gap: 20px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (max-width:767px) {
+        width: 100%;
     }
+    }
+}
 }

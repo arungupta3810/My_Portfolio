@@ -15,12 +15,20 @@ const Details = () => {
             <br />
             <span>⚡Frontend Engineer at <span onClick={()=>window.open("https://www.lighthouse-learning.com/")}>Lighthouse Learning Private Limited</span></span>
             <div className='contact-details'>
-                {contactMedia?.map((media) =>
+                {contactMedia?.filter(e=>!(e?.highlight))?.map((media) =>
                     <a key={media?.id} href={media?.url} target='_blank'><div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
                         <span>{media?.icon}{' '}{media?.name}</span>
                     </div>
             </a>)}
-            </div>
+            <span className='resume-block'>Download or watch my Resume below
+                  {contactMedia?.filter(e=>(e?.highlight))?.map((media) =>
+                  <a key={media?.id} href={media?.url} target='_blank'>
+                    <div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
+                        <span>{media?.icon}{' '}{media?.name}</span>
+                    </div>
+                </a>)}
+                </span>
+                </div>
         </div>
         </SlideUpWhenVisible>
     )

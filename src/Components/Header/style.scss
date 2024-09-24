@@ -12,9 +12,18 @@
     width: 80%;
     margin: auto;
     border-bottom: 0.25px solid var(--dark-theme-gray);
+    @media screen and (max-width:767px) {
+        display: block;
+        border-bottom: none;
+    }
     .header-right{
         display: inline-flex;
         gap: 10px;
+        @media screen and (max-width:767px) {
+            flex-direction: column;
+                width: 100%;
+                padding-top: 1rem;
+        }
         .nav-link{
             padding: 5px 10px;
             cursor: pointer;
@@ -23,9 +32,24 @@
         }
     }
     }
+    .cross{
+        position: absolute;
+        right: 10%;
+        top: 16%;
+    }
+    .menu{
+        position: absolute;
+        right: 10%;
+        top: 38%;
+    }
     .logo-wrapper{
+        display: flex;
+        gap: 2px;
+        align-items: center;
         padding: 5px;
-        span{
+        @media screen and (max-width:767px) {
+        border-bottom: 0.25px solid var(--dark-theme-gray);
+        padding-bottom: 0.75rem;
         }
     }
 }
