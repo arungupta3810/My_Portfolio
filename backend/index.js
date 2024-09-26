@@ -5,22 +5,38 @@ const Contact = require('./database/Contact');
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin: ['https://arun-kumar-gupta-portfolio.vercel.app','https://arun-kumar-gupta-portfolio.vercel.app/'],
-    methods: ["POST","GET"],
-    credentials: true
-}));
+// app.use(cors({
+//     origin: ['https://arun-kumar-gupta-portfolio.vercel.app','https://arun-kumar-gupta-portfolio.vercel.app/'],
+//     methods: ["POST","GET"],
+//     credentials: true
+// }));
+
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
+  
+  app.use(cors(corsOpts));
 
 app.get("/", (req, res) => {
     res.send('Server is healthy and working!!!');
 });
 
-app.post("/submit", async (req, res) => {
+app.post("/submit", async (req, res,next) => {
     try {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         res.setHeader('Access-Control-Allow-Credentials', true);
+        next();
         let temp = new Contact(req.body);
         let result = await temp.save();
         res.status(201).send(result);
