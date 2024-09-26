@@ -6,7 +6,7 @@ const Contact = require('./database/Contact');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://arun-kumar-gupta-portfolio.vercel.app',
+    origin: ['https://arun-kumar-gupta-portfolio.vercel.app','https://arun-kumar-gupta-portfolio.vercel.app/'],
     methods: ["POST","GET"],
     credentials: true
 }));
