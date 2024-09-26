@@ -47,7 +47,7 @@ const Contact = () => {
       email: email,
       message: message,
     }
-    const url = "http://localhost:5005/submit"
+    const url = `${process.env.REACT_APP_API_URL}/submit`
     if(name && email && message ){
     fetch(url,
       {
