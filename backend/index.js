@@ -5,17 +5,19 @@ const Contact = require('./database/Contact');
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin: ['https://arun-kumar-gupta-portfolio.vercel.app'],
-    methods: ["POST","GET"],
-    credentials: true
-}));
+app.use(cors(
+//     {
+//     origin: ['https://arun-kumar-gupta-portfolio.vercel.app'],
+//     methods: ["POST","GET"],
+//     credentials: true
+// }
+));
 
 app.get("/", (req, res) => {
     res.send('Server is healthy and working!!!');
 });
 
-app.post("/submit", async (req, res,next) => {
+app.post("/submit", async (req, res) => {
     try {
         let temp = new Contact(req.body);
         let result = await temp.save();
