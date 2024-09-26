@@ -6,7 +6,7 @@ const Contact = require('./database/Contact');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["https://my-portfolio-zeta-bay.vercel.app/"],
+    origin: [process.env.FE_URL_CORS],
     methods: ["POST","GET"],
     credentials: true
 }));
