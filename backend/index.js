@@ -19,8 +19,11 @@ app.get("/", (req, res) => {
 
 app.post("/submit", async (req, res) => {
     try {
+        console.log('entered try');
         let temp = new Contact(req.body);
+        console.log('temp',req.body);
         let result = await temp.save();
+        console.log('result',result);
         res.status(201).send(result);
     } catch (error) {
         console.error(error);
