@@ -8,6 +8,7 @@ import { SlideUpWhenVisible } from "../CommonHelper/helperComponents";
 const Contact = () => {
   const [form] = Form.useForm();
   const [isVisible, setIsVisible] = useState(false);
+  const [disabled,setDisabled] = useState(false)
 
   const contactDetails = [
     {
@@ -39,34 +40,38 @@ const Contact = () => {
   }, [isVisible]);
 
   const onFinish = () => {
-    const name = form.getFieldValue("name")
-    const  email = form.getFieldValue("email")
-    const message =  form.getFieldValue("message")
-    const params = {
-      name: name,
-      email: email,
-      message: message,
-    }
-    const url = `${process.env.REACT_APP_API_URL}/submit`
-    if(name && email && message ){
-    fetch(url,
-      {
+  try {
+    const { name, email, messages } = form.getFieldsValue();
+    const params = { name, email, messages };
+    const url = `${process.env.REACT_APP_API_URL}/submit`;
+    if (name && email && messages) {
+      setDisabled(true)
+      fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(params)
+        body: JSON.stringify(params),
       })
-      .then(response => response.json())
-      .then((data) => {
-        if (data) {
+        .then((response) => response.json())
+        .then((data) => {
+          if (data) {
+            form.resetFields();
+            setIsVisible(true);
+            setDisabled(false)
+          }
+        })
+        .catch((error) => {
+          message.error('Something went wrong Please try again later!!!');
           form.resetFields();
-          setIsVisible(true);
-        }
-      }
-      )
+          setDisabled(false)
+        });
     }
-  };
+  } catch (error) {
+    setDisabled(false)
+    message.error('Something went wrong');
+  }
+};
 
   return (
     <SlideUpWhenVisible>
@@ -125,7 +130,7 @@ const Contact = () => {
             </Form.Item>
 
             <Form.Item
-              name="message"
+              name="messages"
               label="Message"
               rules={[
                 {
@@ -138,7 +143,7 @@ const Contact = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 6 }}>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" disabled={disabled}>
                 Submit
               </Button>
             </Form.Item>

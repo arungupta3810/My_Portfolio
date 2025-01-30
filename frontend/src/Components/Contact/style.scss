@@ -72,6 +72,9 @@
             button{
                 background-color: var(--dark-theme-green);
             }
+            button:hover{
+                background-color: var(--dark-theme-green)!important;
+            }
         }
         }
     }
