@@ -1,5 +1,5 @@
 import { MailOutlined, LinkedinOutlined, GithubOutlined, WhatsAppOutlined, ProfileOutlined, InstagramOutlined } from '@ant-design/icons';
-import ResumeFile from '../../Assets/Resume/Arun_Kumar_Gupta.pdf'
+import ResumeFile from '../../Assets/Resume/Arun_Gupta.pdf'
 
 const LIGHT = 'light'
 const DARK  = 'dark'

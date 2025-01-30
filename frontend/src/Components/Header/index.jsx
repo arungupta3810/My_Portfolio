@@ -3,13 +3,12 @@ import "./style.scss"
 import { themeDecider } from '../CommonHelper'
 import { HomeOutlined, CodepenCircleOutlined, CloseOutlined, MenuOutlined } from '@ant-design/icons'
 import { route } from '../../routing'
-import { ReactComponent as Logo } from '../../Assets/Images/logo.svg'
 
 const Header = () => {
     const isMobile =  window.innerWidth <= 768;
     const [ isVisible,setIsVisible ] = useState(!isMobile)
     const getNavLink = () => {
-        return route?.map((link)=>
+        return route?.filter(e=>e.header)?.map((link)=>
             <div key={link?.id} className="nav-link" onClick={()=>window.location.href=link?.path}>
                 {link?.name}
             </div>

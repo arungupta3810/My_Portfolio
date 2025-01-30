@@ -9,9 +9,13 @@ const Footer = () => {
       <span>Feel free to connect with me</span>
       <div className="footer__container">
         <div className="social">
-          {contactMedia?.filter(e=>!e?.highlight)?.map((media) => 
-            <a target="_blank" href={media?.url} key={media?.id}>{media?.icon}</a>
-          )}
+          {contactMedia
+            ?.filter((e) => !e?.highlight)
+            ?.map((media) => (
+              <a target="_blank" href={media?.url} key={media?.id}>
+                {media?.icon}
+              </a>
+            ))}
         </div>
         <span>
           Designed and Developed by Arun Gupta, Built with React.js & Antd

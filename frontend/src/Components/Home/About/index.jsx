@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.scss'
-import MyPic from '../../Assets/Images/pic.jpeg'
+import MyPic from '../../../Assets/Images/pic.jpeg'
 import { Row, Col } from 'antd'
 import { motion, transform } from "framer-motion"
-import {SlideUpWhenVisible} from '../CommonHelper/helperComponents'
+import {SlideUpWhenVisible} from '../../CommonHelper/helperComponents'
 
 const About = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
-import { contactMedia, themeDecider } from '../CommonHelper';
-import { SlideUpWhenVisible } from '../CommonHelper/helperComponents';
+import { contactMedia, themeDecider } from '../../CommonHelper';
+import { SlideUpWhenVisible } from '../../CommonHelper/helperComponents';
 
 const Details = () => {
     return (

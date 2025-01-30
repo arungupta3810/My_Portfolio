@@ -1,0 +1,14 @@
+.page-not-found{
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h1{
+        padding-top: 7rem;
+    }
+    a{
+        margin: 3rem 0 ;
+        text-decoration: underline;
+        color: var(--dark-theme-green);
+    }
+}
