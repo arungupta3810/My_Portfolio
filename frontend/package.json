@@ -1,8 +1,8 @@
 {
-    "proxy": "https://arunguptaportfoliobackend.vercel.app/",
     "name": "my_portfolio",
     "version": "0.1.0",
     "private": true,
+    "proxy": "https://arunguptaportfoliobackend.vercel.app",
     "dependencies": {
         "@ant-design/icons": "^5.5.1",
         "@testing-library/jest-dom": "^5.17.0",
