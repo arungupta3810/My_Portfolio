@@ -11,8 +11,8 @@ const About = () => {
     <Row gutter={24} className='about'>
       <Col md={14} xs={24} className="left">
         <p>⚡ About Me</p>
-        <span>Hi, I'm Arun Kumar Gupta, a software engineer with a deep-rooted passion for technology since childhood. My journey with computers started early, and it has fueled my drive to create impactful digital solutions.</span><br /><br />
-        <span>Specializing in <span>React.js</span>, I bring a wealth of experience in <span> Next.js, Node.js, Express.js, HTML, CSS, and JavaScript</span>,
+        <span>Hi, I'm Arun Gupta, a software engineer with a deep-rooted passion for technology since childhood. My journey with computers started early, and it has fueled my drive to create impactful digital solutions.</span><br /><br />
+        <span>Specializing in <span>React</span>, I bring a wealth of experience in <span> Next.js, Node.js, Express.js, HTML, CSS, and JavaScript</span>,
           crafting dynamic and responsive web applications.My early work with Spring Boot has also enriched my back-end development skills,
           making me a versatile full-stack developer.</span><br /><br />
         <span>I'm committed to building seamless user experiences and always eager to learn and contribute to innovative projects that

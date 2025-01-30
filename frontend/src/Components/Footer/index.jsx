@@ -14,9 +14,9 @@ const Footer = () => {
           )}
         </div>
         <span>
-          Designed and Developed by Arun Kumar Gupta, Built with React.js & Antd
+          Designed and Developed by Arun Gupta, Built with React.js & Antd
         </span>
-        <span>© Copyright 2024 | Arun Kumar Gupta</span>
+        <span>© Copyright 2024 | Arun Gupta</span>
       </div>
     </div>
   );

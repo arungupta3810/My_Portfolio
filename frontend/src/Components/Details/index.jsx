@@ -8,7 +8,7 @@ const Details = () => {
         <SlideUpWhenVisible>
         <div className='details'>
             <p className={`heading ${themeDecider()}`}>Hey there!, I'm-</p>
-            <h1>Arun Kumar Gupta.</h1>
+            <h1>Arun Gupta.</h1>
             <p>Software Engineer. <span>A self-taught developer with an <br />
                 interest in Computer Science.</span></p>
             <span>🚀 Currently specializing in Frontend (React / Next.js)</span>

@@ -1,6 +1,6 @@
 .footer{
-    padding-top: 6rem;
     display: flex;
+    padding-top: 3rem;
         flex-direction: column;
         text-align: center;
         p,span{
@@ -25,5 +25,10 @@
             font-size: 14px;
             line-height: 1.2;
         }
+    }
+}
+@media screen and (max-width:767px) {
+    .footer{
+        padding-top: 0;
     }
 }
