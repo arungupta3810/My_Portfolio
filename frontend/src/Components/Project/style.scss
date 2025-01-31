@@ -31,6 +31,7 @@
     }
     .project-card-wrapper{
         padding: 1.5rem ;
+        .slider-animation{
         .project-card{
             .card{
             border: 1px solid #ddd;
@@ -114,6 +115,7 @@
         border: 1px solid var(--dark-theme-green);
        }
     }
+}
     }
 }
 @media screen and (max-width: 767px) {

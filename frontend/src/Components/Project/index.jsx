@@ -22,7 +22,6 @@ const Project = () => {
   };
 
   return (
-    <SlideUpWhenVisible>
       <div className="project">
         <div className="head">
           <p className={`heading ${themeDecider()}`}>Projects</p>
@@ -40,7 +39,8 @@ const Project = () => {
         <Row gutter={24} className="project-card-wrapper">
           {filteredList?.map((project) => {
             return (
-              <Col className="project-card" md={12}>
+              <SlideUpWhenVisible>
+              <Col className="project-card" md={24}>
                 <div className="card">
                   <div className="card-header">
                     <h3>{project?.name?.length > 29 ? truncate(project?.name,29) : project?.name}</h3>
@@ -64,7 +64,7 @@ const Project = () => {
                   <div className="footer-wrapper">
                       <button 
                       className={themeDecider()}
-                      onClick={()=>{if(!project?.disabled){ navigate(`/project/${project?.name?.toLowerCase()?.replaceAll(" ","-")}`)}}}>
+                      onClick={()=>{if(!project?.disabled){ navigate(`/project/${project?.name?.toLowerCase()?.replaceAll("&","")?.replaceAll(" ","-")}`)}}}>
                         Know more
                       </button>
                     {project?.award && (
@@ -78,11 +78,11 @@ const Project = () => {
                   </div>
                 </div>
               </Col>
+              </SlideUpWhenVisible>
             );
           })}
         </Row>
       </div>
-    </SlideUpWhenVisible>
   );
 };
 

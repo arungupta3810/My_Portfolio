@@ -29,6 +29,7 @@ export const SlideUpWhenVisible = ({ children, threshold }) => {
         ref={ref}
         animate={controls}
         initial="hidden"
+        className="slider-animation"
         transition={{ duration: 0.4 }}
         variants={{
           visible: { opacity: 1, y: 0 },
