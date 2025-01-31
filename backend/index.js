@@ -19,16 +19,12 @@ app.get("/", (req, res) => {
 
 app.post("/submit", async (req, res) => {
     try {
-        console.log('Received request body:', req.body);
-        
         let contact = new Contact(req.body);
         let result = await contact.save();
-        
-        console.log('Saved contact:', result);
-        res.status(201).send(result);
+        res.status(201).send({ message: "Contact saved successfully", status: true, data: result });
     } catch (error) {
         console.error('Error saving contact:', error);
-        res.status(500).send({ error: "An error occurred while saving the contact" });
+        res.status(500).send({ message: "An error occurred while saving the data", status: false, data: null });
     }
 });
 

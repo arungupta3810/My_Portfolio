@@ -46,8 +46,9 @@ const Contact = () => {
   const onFinish = () => {
     try {
       const { name, email, messages } = form.getFieldsValue();
-      const params = { name, email, messages };
+      const params = { name, email, messages, date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }), time: new Date().toLocaleTimeString().replace(/:\d\d /, ' ') };
       const url = `${process.env.REACT_APP_API_URL}/submit`;
+      
       if (name && email && messages) {
         setDisabled(true);
         fetch(url, {
@@ -59,9 +60,14 @@ const Contact = () => {
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data) {
+            if (data?.status) {
               form.resetFields();
               setIsVisible(true);
+              setDisabled(false);
+            }
+            else{
+              message.error(data?.message)
+              form.resetFields();
               setDisabled(false);
             }
           })
@@ -143,7 +149,7 @@ const Contact = () => {
                   },
                 ]}
               >
-                <Input.TextArea rows={8} />
+                <Input.TextArea rows={8} maxLength={500} showCount={true} className="text-area" />
               </Form.Item>
 
               <Form.Item wrapperCol={{ offset: 6 }}>
