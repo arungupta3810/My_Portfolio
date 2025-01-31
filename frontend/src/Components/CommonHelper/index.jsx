@@ -15,6 +15,9 @@ export const themeDecider = () => {
     }
 }
 
+const email = 'arungupta3810@gmail.com';
+const subject = '';
+
 export  const contactMedia = [
     {
         id: 1,
@@ -33,7 +36,7 @@ export  const contactMedia = [
     {
         id: 3,
         name: 'Email',
-        url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWrRmTpGwGrxrDjKZQmssdpSDTGcKxqVPBPPNxcppdVvmLkRfFkGDnLxWpxNhZMJDdWVZtZBB',
+        url: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}`,
         icon: <MailOutlined />,
         highlight: false
     },
