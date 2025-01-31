@@ -63,6 +63,7 @@ export  const contactMedia = [
 export const projectList = [
     {
       id: 1,
+      live: true,
       name: "EuroBuddy AI Powered Chat",
       link: "https://eurobuddy.eurokidsindia.com/",
       award: true,
@@ -71,6 +72,7 @@ export const projectList = [
     },
     {
       id: 2,
+      live: true,
       name: "Argus Web Application",
       link: "https://es.lighthouse-learning.com/",
       award: false,
@@ -79,6 +81,7 @@ export const projectList = [
     },
     {
       id: 3,
+      live: true,
       name: "Homebuddy Web Application",
       link: "https://eurokids.lighthouse-learning.com/",
       award: false,
@@ -87,22 +90,25 @@ export const projectList = [
     },
     {
         id: 4,
+        live: true,
         name: "Argus Mobile Application",
-        link: "",
+        link: "https://play.google.com/store/apps/details?id=com.lighthouse.argus&hl=en_IN",
         award: false,
         technology: "React Native",
         Description: 'I have worked on this project as a frontend developer, which is learning management system for mobile application for argus.'
     },
     {
       id: 5,
+      live: true,
       name: "Homebuddy Mobile Application",
-      link: "",
+      link: "https://play.google.com/store/apps/details?id=com.homebuddyLearning&hl=en_IN",
       award: false,
       technology: "React Native",
       Description: 'I have worked on this project as a frontend developer, which is learning management system for mobile application for homebuddy'
     },
     {
         id: 6,
+        live: false,
         name: "Kangaroo kids Website & Microsites & Control Panel",
         link: "",
         award: false,

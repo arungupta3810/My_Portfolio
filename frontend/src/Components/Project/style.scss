@@ -39,12 +39,45 @@
             padding: 15px;
             display: flex;
             flex-direction: column;
+            .card-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @media screen and (max-width: 767px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-bottom: 20px;
+                   }
+                h3{
+                    font-size: 18px;
+                    @media screen and (max-width: 767px) {
+                        margin-bottom: 5px;
+                    }
+                }
+                .live-wrapper{
+                    display: flex;
+                    place-items: center;
+                    gap: 10px;
+                    color: var(--dark-theme-green);
+                    cursor: pointer;
+                    @media screen and (max-width: 767px) {
+                        font-size: 12px;
+                    }
+                    .live{
+                        border-radius: 50%;
+                        width: 10px;
+                        height: 10px;
+                        background-color: var(--dark-theme-green);
+                        @media screen and (max-width: 767px) {
+                            width: 8px;
+                            height: 8px;
+                        }
+                    }
+                }
+            }
             span{
                 font-size: 16px;
                 color: var(--dark-theme-gray);
-            }
-            h3{
-                font-size: 18px;
             }
             .tech{
                 margin-top: 10px;
@@ -58,6 +91,7 @@
                 justify-content: space-between;
                 align-items: center;
             button{
+                cursor: pointer;
                 width: 100px;
                 padding: 8px 10px;
                 border-radius: 5px;
@@ -69,11 +103,15 @@
             }
             .disabled{
                 opacity: 0.4;
+                cursor: not-allowed;
             }
             .dark svg{
                 fill: var(--dark-theme-green);
             }
         }
+       }
+       .card:hover{
+        border: 1px solid var(--dark-theme-green);
        }
     }
     }

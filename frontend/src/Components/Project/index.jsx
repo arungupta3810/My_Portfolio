@@ -3,10 +3,12 @@ import "./style.scss";
 import { Row, Col, Tooltip, Select } from "antd";
 import { projectList, technologyFilter, themeDecider } from "../CommonHelper";
 import { SlideUpWhenVisible, truncate } from "../CommonHelper/helperComponents";
-import { TrophyOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, TrophyOutlined } from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
 
 const Project = () => {
   const [filteredList, setFilteredList] = useState(projectList);
+  const navigate = useNavigate();
 
   const handleFilter = (selectedFilter) => {
     if (selectedFilter !== "All") {
@@ -40,7 +42,14 @@ const Project = () => {
             return (
               <Col className="project-card" md={12}>
                 <div className="card">
-                  <h3>{project?.name}</h3>
+                  <div className="card-header">
+                    <h3>{project?.name?.length > 29 ? truncate(project?.name,29) : project?.name}</h3>
+                    {project?.live && <Link to={project?.link} target="_blank">
+                    <div className="live-wrapper">
+                      <span className="live"></span>
+                      LIVE <ArrowRightOutlined /></div>
+                      </Link>}
+                    </div>
                   <span>
                     {project?.Description?.length < 140
                       ? project?.Description
@@ -53,11 +62,11 @@ const Project = () => {
                     </span>
                   </span>
                   <div className="footer-wrapper">
-                    <Tooltip title={"Disabled due to new upgrades"}>
-                      <button disabled className={`disabled ${themeDecider()}`}>
+                      <button 
+                      className={themeDecider()}
+                      onClick={()=>{if(!project?.disabled){ navigate(`/project/${project?.name?.toLowerCase()?.replaceAll(" ","-")}`)}}}>
                         Know more
                       </button>
-                    </Tooltip>
                     {project?.award && (
                       <Tooltip title={"Awarded for this project"}>
                         <TrophyOutlined

@@ -1,8 +1,11 @@
 .page-not-found{
-    padding-top: 5rem;
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     text-align: center;
+    @media screen and (max-width:767px) {
+        padding: 6.5rem 0;
+    }
     h1{
         padding-top: 7rem;
     }
