@@ -1,4 +1,4 @@
-import { ArrowUpOutlined } from "@ant-design/icons"
+import { ArrowUpOutlined, DoubleRightOutlined } from "@ant-design/icons"
 import './style.scss'
 import { Progress } from "antd"
 import { motion, useAnimation } from 'framer-motion'
@@ -23,8 +23,19 @@ export const SlideUpWhenVisible = ({ children, threshold }) => {
         controls.start('visible')
       }
     }, [controls, inView])
+
+    const ScrollUp = () => {
+      return (
+      <div className="scrollwrapper"> 
+        <DoubleRightOutlined style={{transform: 'rotate(-90deg)'}} />
+        <span>Scroll up</span>
+        </div>
+        )
+    }
     
     return (
+      <>
+      {!inView && <ScrollUp /> }
       <motion.div
         ref={ref}
         animate={controls}
@@ -38,6 +49,7 @@ export const SlideUpWhenVisible = ({ children, threshold }) => {
       >
         {children}
       </motion.div>
+      </>
     )
   }
 
