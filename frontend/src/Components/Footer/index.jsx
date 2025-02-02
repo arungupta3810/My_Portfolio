@@ -1,10 +1,15 @@
 import React from "react";
 import "./style.scss";
+import { route } from "../../routing";
 import { contactMedia } from "../CommonHelper";
 
 const Footer = () => {
   return (
     <div className="footer">
+      <div className="navigator">
+      {route?.filter(e=>e?.header)?.map(e=>
+      <a href={e?.path}>{e?.name}</a>)}
+      </div>
       <p>Keep In Touch</p>
       <span>Feel free to connect with me</span>
       <div className="footer__container">
