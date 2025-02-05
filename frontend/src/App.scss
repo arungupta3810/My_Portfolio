@@ -19,6 +19,7 @@
 
 .App {
     padding: 0 10rem;
+    min-height: 100dvh;
     @media screen and (max-width:767px) {
     padding: 0 2rem;
     }

@@ -30,7 +30,7 @@ export const route = [
     id: 4,
     header: false,
     name: 'Project Details',
-    path: '/project/:projectName',
+    path: '/project/:projectId',
     component: <ProjectDetailTemplate />
   },
   {

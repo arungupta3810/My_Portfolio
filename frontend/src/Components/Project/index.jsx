@@ -21,6 +21,12 @@ const Project = () => {
     }
   };
 
+  const handleClick = (project) => {
+    if(!project?.disabled){ 
+      navigate(`/project/${project?.id}`)
+    }
+  }
+
   return (
       <div className="project">
         <div className="head">
@@ -64,7 +70,7 @@ const Project = () => {
                   <div className="footer-wrapper">
                       <button 
                       className={themeDecider()}
-                      onClick={()=>{if(!project?.disabled){ navigate(`/project/${project?.name?.toLowerCase()?.replaceAll("&","")?.replaceAll(" ","-")}`)}}}>
+                      onClick={()=>handleClick(project)}>
                         Know more
                       </button>
                     {project?.award && (
