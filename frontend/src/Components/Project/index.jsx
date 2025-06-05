@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { Row, Col, Tooltip, Select } from "antd";
-import { projectList, technologyFilter, themeDecider } from "../CommonHelper";
+import { technologyFilter, themeDecider } from "../CommonHelper";
 import { SlideUpWhenVisible, truncate } from "../CommonHelper/helperComponents";
 import { ArrowRightOutlined, TrophyOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 
 const Project = () => {
-  const [filteredList, setFilteredList] = useState(projectList);
+  const [list, setList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    getProjectList()
+  },[])
+
+  const getProjectList = async() => {
+    const data = await fetch(process.env.REACT_APP_API_URL+'/projects')
+    const res = await data.json()
+    if(res?.status)
+      localStorage.setItem('projects',JSON.stringify(res?.data))
+      setFilteredList(res?.data)
+      setList(res?.data)
+  }
 
   const handleFilter = (selectedFilter) => {
     if (selectedFilter !== "All") {
-      const list = projectList.filter(
+      const updatedList = list?.filter(
         (project) => project?.technology === selectedFilter
       );
-      setFilteredList(list);
+      setFilteredList(updatedList);
     } else {
-      setFilteredList(projectList);
+      setFilteredList(list);
     }
   };
 
@@ -42,6 +56,8 @@ const Project = () => {
             />
           </div>
         </div>
+        {console.log(filteredList)
+        }
         <Row gutter={24} className="project-card-wrapper">
           {filteredList?.map((project) => {
             return (
