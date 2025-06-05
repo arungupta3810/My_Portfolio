@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import { Row, Col, Tooltip, Select } from "antd";
+import { Row, Select, Col, Tooltip, Skeleton } from "antd";
 import { technologyFilter, themeDecider } from "../CommonHelper";
 import { SlideUpWhenVisible, truncate } from "../CommonHelper/helperComponents";
 import { ArrowRightOutlined, TrophyOutlined } from "@ant-design/icons";
@@ -11,6 +11,7 @@ import * as animationData from '../../Assets/LottieFiles/EmptyList.json'
 const Project = () => {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [loader, setLoader] = useState(true);
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -18,12 +19,14 @@ const Project = () => {
   },[])
 
   const getProjectList = async() => {
+    setLoader(true)
     const data = await fetch(process.env.REACT_APP_API_URL+'/projects')
     const res = await data.json()
     if(res?.status)
       localStorage.setItem('projects',JSON.stringify(res?.data))
       setFilteredList(res?.data)
       setList(res?.data)
+      setLoader(false)
   }
 
   const handleFilter = (selectedFilter) => {
@@ -113,6 +116,7 @@ const Project = () => {
               </SlideUpWhenVisible>
             );
           }) :
+          loader ? <Skeleton active className="dark-skeleton" /> :
           <div className="center">
             <Lottie options={defaultOptions}
               height={window.innerWidth > 767 ? 250 : 220}
