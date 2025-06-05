@@ -5,6 +5,8 @@ import { technologyFilter, themeDecider } from "../CommonHelper";
 import { SlideUpWhenVisible, truncate } from "../CommonHelper/helperComponents";
 import { ArrowRightOutlined, TrophyOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
+import Lottie from 'react-lottie';
+import * as animationData from '../../Assets/LottieFiles/EmptyList.json'
 
 const Project = () => {
   const [list, setList] = useState([]);
@@ -41,6 +43,15 @@ const Project = () => {
     }
   }
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
   return (
       <div className="project">
         <div className="head">
@@ -56,10 +67,9 @@ const Project = () => {
             />
           </div>
         </div>
-        {console.log(filteredList)
-        }
         <Row gutter={24} className="project-card-wrapper">
-          {filteredList?.map((project) => {
+          {!!filteredList?.length ? 
+          filteredList?.map((project) => {
             return (
               <SlideUpWhenVisible>
               <Col className="project-card" md={24}>
@@ -102,7 +112,15 @@ const Project = () => {
               </Col>
               </SlideUpWhenVisible>
             );
-          })}
+          }) :
+          <div className="center">
+            <Lottie options={defaultOptions}
+              height={window.innerWidth > 767 ? 250 : 220}
+              width={window.innerWidth > 767 ? 250 : window.innerWidth < 400 ? 280 : 280}
+              />
+            <span>No Projects found</span>
+          </div>
+        }
         </Row>
       </div>
   );
