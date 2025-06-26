@@ -3,6 +3,7 @@ require('./database/Config');
 const cors = require('cors');
 const Contact = require('./database/Contact'); 
 const Project = require('./database/Project');
+const LinkAnalytics = require('./database/LinkAnalytics');
 
 const app = express();
 app.use(express.json());
@@ -46,6 +47,17 @@ app.get("/projects", async (req, res) => {
     } catch (error) {
         console.error('Error fetching projects:', error);
         res.status(500).send({ message: "An error occurred while fetching projects", status: false, data: null });
+    }
+});
+
+app.post("/link-analytics",async (req,res) => {
+    try {
+        let linkReq = new LinkAnalytics(req.body);
+        let result = await linkReq.save();
+        res.status(201).send({ message: null, status: true, data: result });
+    } catch (error) {
+        console.error('Error saving Link analytics:', error);
+        res.status(500).send({ message: "An error occurred while saving the data", status: false, data: null });
     }
 });
 

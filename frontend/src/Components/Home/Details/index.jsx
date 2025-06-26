@@ -4,6 +4,27 @@ import { contactMedia, themeDecider } from '../../CommonHelper';
 import { SlideUpWhenVisible } from '../../CommonHelper/helperComponents';
 
 const Details = () => {
+    const handleClick = async (name) => {
+        const payload = {
+            name: name,
+            date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }),
+            time: new Date().toLocaleTimeString().replace(/:\d\d /, ' ')
+        };
+        try {
+            const res = await fetch(process.env.REACT_APP_API_URL + '/link-analytics', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json();
+            console.log('link analytics capture', result);
+        } catch (error) {
+            console.log('Something went wrong!!!', error);
+        }
+    }
+
     return (
         <SlideUpWhenVisible>
         <div className='details'>
@@ -16,14 +37,14 @@ const Details = () => {
             <span>⚡Software Engineer at <span onClick={()=>window.open("https://www.lighthouse-learning.com/")}>Lighthouse Learning Private Limited</span></span>
             <div className='contact-details'>
                 {contactMedia?.filter(e=>!(e?.highlight))?.map((media) =>
-                    <a key={media?.id} href={media?.url} target='_blank'><div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
+                    <a key={media?.id} href={media?.url} target='_blank' onClick={()=>handleClick(media?.name)}><div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
                         <span>{media?.icon}{' '}{media?.name}</span>
                     </div>
             </a>)}
             <span className='resume-block'>Download or watch my Resume below
                   {contactMedia?.filter(e=>(e?.highlight))?.map((media) =>
                   <a key={media?.id} href={media?.url} target='_blank'>
-                    <div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`}>
+                    <div className={`${media?.highlight && 'highlight'} contact-media ${themeDecider()}`} onClick={()=>handleClick(media?.name)}>
                         <span>{media?.icon}{' '}{media?.name}</span>
                     </div>
                 </a>)}
