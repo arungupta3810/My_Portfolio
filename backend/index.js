@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: ['https://arun-gupta-portfolio.vercel.app', 'http://localhost:3000'],
+    origin: ['https://arun-gupta-portfolio.vercel.app', 'http://localhost:3000','https://arun-gupta.vercel.app/'],
     methods: ["POST", "GET"],
     credentials: true
 }));
