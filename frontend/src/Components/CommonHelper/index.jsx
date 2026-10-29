@@ -1,6 +1,7 @@
 import { MailOutlined, LinkedinOutlined, GithubOutlined, WhatsAppOutlined, ProfileOutlined, InstagramOutlined } from '@ant-design/icons';
 import ResumeFile from '../../Assets/Resume/Arun_Gupta.pdf'
 
+// eslint-disable-next-line no-unused-vars
 const LIGHT = 'light'
 const DARK  = 'dark'
 
