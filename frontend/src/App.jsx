@@ -1,23 +1,16 @@
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { route } from './routing';
 import { themeDecider } from './Components/CommonHelper';
-import Layout from './Layout';
+import Redirect from './Components/Redirect';
 import { Analytics } from "@vercel/analytics/react"
 
+// The portfolio has moved to https://arun-gupta.vercel.app.
+// Every route on this old site now redirects there.
+// To restore the old site, bring back the BrowserRouter setup from git history.
 function App() {
   return (
     <div className={`App ${themeDecider()}`}>
       <Analytics />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />} >
-            {route?.map((route) =>
-              <Route key={route?.id} element={route?.component} path={route?.path} />
-            )}
-            </Route>
-          </Routes>
-        </BrowserRouter>
+      <Redirect />
     </div>
   );
 }

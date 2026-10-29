@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.redirect {
+    --rd-bg: #0c0b0a;
+    --rd-card: #131210;
+    --rd-text: #f3eee6;
+    --rd-muted: #8a857d;
+    --rd-accent: #dca06a;
+    --rd-line: rgba(243, 238, 230, 0.1);
+    --rd-serif: 'Instrument Serif', Georgia, serif;
+    --rd-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --rd-sans: 'Inter', system-ui, sans-serif;
+
+    // Cover the old App padding and background entirely.
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 16px;
+    color: var(--rd-text);
+    font-family: var(--rd-sans);
+    background:
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(220, 160, 106, 0.08), transparent 70%),
+        var(--rd-bg);
+
+    a {
+        text-decoration: none;
+    }
+
+    &__card {
+        width: 100%;
+        max-width: 640px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 3.5rem 3rem;
+        border: 1px solid var(--rd-line);
+        border-radius: 24px;
+        background: radial-gradient(circle at top, rgba(220, 160, 106, 0.1), transparent 60%), var(--rd-card);
+        box-shadow: 0 0 80px rgba(220, 160, 106, 0.06);
+
+        @media screen and (max-width: 767px) {
+            padding: 2.5rem 1.5rem;
+        }
+    }
+
+    &__badge,
+    &__countdown,
+    &__button {
+        font-family: var(--rd-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.45rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid var(--rd-line);
+        color: var(--rd-muted);
+        font-size: 12px;
+    }
+
+    &__dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #4f9a6a;
+        animation: redirect-pulse 2s ease-out infinite;
+    }
+
+    &__title {
+        margin: 1.5rem 0 0.75rem;
+        font-family: var(--rd-serif);
+        font-weight: 400;
+        font-size: 80px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--rd-text);
+
+        @media screen and (max-width: 767px) {
+            font-size: 56px;
+        }
+    }
+
+    &__highlight {
+        font-style: italic;
+        color: var(--rd-accent);
+    }
+
+    &__text {
+        margin: 0 0 2rem;
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--rd-muted);
+
+        @media screen and (max-width: 767px) {
+            font-size: 16px;
+        }
+    }
+
+    &__url {
+        font-family: var(--rd-mono);
+        font-size: 15px;
+        color: var(--rd-text);
+        padding: 0.7rem 1.3rem;
+        border-radius: 999px;
+        background: rgba(243, 238, 230, 0.04);
+        border: 1px solid var(--rd-line);
+        word-break: break-all;
+        transition: border-color 0.2s;
+
+        &:hover {
+            color: var(--rd-text);
+            border-color: var(--rd-accent);
+        }
+    }
+
+    &__progress {
+        width: 100%;
+        height: 2px;
+        margin-top: 2.25rem;
+        border-radius: 999px;
+        background: var(--rd-line);
+        overflow: hidden;
+    }
+
+    &__progress-bar {
+        height: 100%;
+        background: var(--rd-accent);
+    }
+
+    &__countdown {
+        margin-top: 0.85rem;
+        font-size: 12px;
+        color: var(--rd-muted);
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__button {
+        margin-top: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.05rem 2rem;
+        border-radius: 999px;
+        background: var(--rd-accent);
+        color: #1a120a;
+        font-size: 13px;
+        font-weight: 500;
+        transition: transform 0.25s, box-shadow 0.25s;
+
+        &:hover {
+            color: #1a120a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 160, 106, 0.25);
+        }
+    }
+}
+
+@keyframes redirect-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(79, 154, 106, 0.6); }
+    100% { box-shadow: 0 0 0 10px rgba(79, 154, 106, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .redirect__dot { animation: none; }
+}
